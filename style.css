@@ -1,0 +1,151 @@
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+    position: relative;
+
+    display: grid;
+    place-items: center;
+}
+
+:root {
+    --Gradient: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+
+    --Pale-Blue: hsl(243, 100%, 93%);
+    --Grayish-Blue: hsl(229, 7%, 55%);
+    --Dark-Blue: hsl(228, 56%, 26%);
+    --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+body > picture {
+    position: absolute;
+    /* inset: 0; */
+    width: 100%;
+    z-index: -1;
+}
+
+main {
+    display: grid;
+    width: 80vw;
+    gap: 1rem;
+    padding: 2rem;
+    color: white;
+}
+
+main > div,
+main ~ div {
+    background: var(--Dark-Blue);
+    border-radius: 10px;
+}
+
+.logo-container {
+    display: grid;
+    gap: 2rem;
+    border-top-right-radius: 50%;
+    padding: 2rem;
+}
+
+.logo-container .flex {
+    gap: .8rem;
+}
+
+.logo-container .flex img {
+    background: var(--Very-Dark-Blue);
+    padding: .7rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.summary-container {
+    display: grid;
+    position: relative;
+    padding: 2rem;
+}
+
+.summary-container h1 {
+    font-size: 1rem;
+}
+
+.bar {
+    width: 100%;
+    height: 1rem;
+    background: var(--Very-Dark-Blue);
+    border-radius: 10px;
+    position: relative;
+}
+
+.fill-bar {
+    width: calc(100% - 18.5%);
+    position: relative;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--Gradient);
+}
+
+.fill-bar::after {
+    content: '';
+    position: absolute;
+    right: .1rem;
+    border-radius: 50%;
+    width: 1rem;
+    background: white;
+    height: 100%;
+}
+
+.summary-container .flex {
+    justify-content: space-between;
+}
+
+.storage {
+    background: white;
+    position: absolute;
+    bottom: -3rem;
+    color: var(--Grayish-Blue);
+    border-radius: 10px;
+    left: 27%;
+    text-transform: uppercase;
+    padding: 1rem;
+    font-size: .7rem;
+}
+
+.storage > * {
+    margin: 0;
+}
+
+.storage span {
+    color: var(--Very-Dark-Blue);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 375px) {
+    main {
+        margin-top: 5rem;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .storage {
+        left: 75%;
+        bottom: 80%;
+        border-bottom-right-radius: 0;
+    }
+
+    .storage::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -1rem;
+        width: 1rem;
+        height: 1rem;
+        background: white;
+        clip-path: polygon(0 0, 100% 100%, 100% 0);
+    }
+}
